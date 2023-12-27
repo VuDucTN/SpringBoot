@@ -30,10 +30,25 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+	implementation 'net.bytebuddy:byte-buddy:1.11.18'
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
  	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
-	
-	
+    implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	implementation 'net.digitalid.utility:utility:0.7.0'
+	annotationProcessor 'net.digitalid.utility:utility:0.7.0'
+
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl

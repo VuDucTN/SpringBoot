@@ -5,7 +5,6 @@ import java.io.UnsupportedEncodingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -45,7 +44,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
   
   @Transactional
   public void register(User user, String siteURL)
-	        throws UnsupportedEncodingException, MessagingException {   
+	        throws UnsupportedEncodingException, MessagingException {
 	    String randomCode = RandomString.make(64);
 	    user.setVerificationCode(randomCode);
 	    user.setEnabled(false);
@@ -53,7 +52,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	    userRepository.save(user);
 	     
 	    sendVerificationEmail(user, siteURL);
-//	    userVerificationScheduler.runUserVerificationJob();
 	}
   
   	@Transactional

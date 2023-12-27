@@ -27,6 +27,7 @@ import Payload.LoginRequest;
 import Payload.MessageResponse;
 import Payload.SignupRequest;
 import Payload.UserInfoResponse;
+import example.springProject.batch.verify.UserVerificationJobLauncher;
 //import example.springProject.batch.verify.UserVerificationJobLauncher;
 import example.springProject.models.ERole;
 import example.springProject.models.Role;
@@ -111,9 +112,7 @@ public class AuthController {
     }
 
     user.setRoles(roles);
-//    userRepository.save(user);
     service.register(user, getSiteURL(request));
-//    userVerificationJobLauncher.runJob();
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
   }
   

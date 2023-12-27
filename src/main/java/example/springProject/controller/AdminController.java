@@ -11,6 +11,7 @@ import org.springframework.batch.core.repository.JobExecutionAlreadyRunningExcep
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -37,6 +38,7 @@ public class AdminController {
 	private JobLauncher jobLauncher;
 	
 	@Autowired
+	@Qualifier("importFileProduct")
 	private Job job;
 	
 	 @Autowired

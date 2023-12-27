@@ -5,13 +5,13 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
-import org.springframework.batch.item.data.RepositoryItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.LineMapper;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
@@ -20,8 +20,6 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import Payload.ProductRequest;
-import example.springProject.models.Product;
-import example.springProject.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 
 @Configuration
@@ -74,7 +72,7 @@ public class ProductBatchConfig {
 	}
 	
 	@Bean
-	public Job runJob(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
+	public Job importFileProduct(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
 		return new JobBuilder("importProduct", jobRepository)
 				.flow(step1(jobRepository, transactionManager))
 				.end()
