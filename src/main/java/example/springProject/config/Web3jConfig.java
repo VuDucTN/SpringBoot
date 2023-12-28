@@ -16,7 +16,6 @@ import java.net.URI;
 public class Web3jConfig {
     @Bean
     public Web3j web3j() throws Exception {
-        // Thay thế URL bên dưới bằng URL của nút Ganache của bạn
 //        return Web3j.build(new HttpService( "https://goerli.infura.io/v3/f25dd7378899465bb7720a1c3d408ed5"));
         WebSocketService webSocketService = new WebSocketService("wss://goerli.infura.io/ws/v3/f25dd7378899465bb7720a1c3d408ed5", false);
         webSocketService.connect();
