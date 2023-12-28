@@ -2,6 +2,30 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.0'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'org.web3j' version '4.10.3'
+	id 'org.web3j.solidity' version '0.4.0'
+}
+web3j {
+	generatedPackageName = 'example.springProject.contracts'
+	generatedFilesBaseDir = file("$projectDir/src")
+	excludedContracts = ['Ownable']
+	useNativeJavaTypes = true
+}
+
+solidity {
+	allowPaths = ['src/main/solidity']
+	optimizeRuns = 500
+}
+
+sourceSets {
+	main {
+		solidity {
+			srcDir {
+				'src/main/resources/contracts'
+			}
+			output.resourcesDir = file("$buildDir/resources/main/compiledSolid")
+		}
+	}
 }
 
 group = 'example'
